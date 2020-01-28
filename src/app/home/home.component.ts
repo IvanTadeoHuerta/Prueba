@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
-
 import { QuoteService } from './quote.service';
-import { Numeros } from '@app/interfaces/numeros';
+import { Consulta } from '@app/models/consulta';
+
 
 @Component({
   selector: 'app-home',
@@ -14,8 +14,7 @@ export class HomeComponent implements OnInit {
   quote: string | undefined;
   isLoading = false;
   showNumber: boolean = false;
-  numeros: Array<Numeros> = [];
-  numero: number = 0;
+  consulta: Consulta = new Consulta(new Date(), 0, []);
 
 
   constructor(private quoteService: QuoteService) { }
@@ -29,41 +28,44 @@ export class HomeComponent implements OnInit {
 
   verNumeros() {
 
-    this.numeros = [];
+    this.consulta.numeros = [];
 
-    if (this.numero > 0) {
+    if (this.consulta.numero > 0) {
 
-      for (let i = 1; i <= this.numero; i++) {
+      for (let i = 1; i <= this.consulta.numero; i++) {
 
         if ((i % 3 == 0) && (i % 5 == 0)) {
           // console.log('verde', i, "<3");
 
-          this.numeros.push({ numero: i, color: 'verde', emoji: 1 });
+          this.consulta.numeros.push({ numero: i, color: 'verde', emoji: 1 });
 
         } else if ((i % 3 == 0) && (i % 7 == 0)) {
 
-          this.numeros.push({ numero: i, color: 'morado', emoji: 2 });
+          this.consulta.numeros.push({ numero: i, color: 'morado', emoji: 2 });
 
         } else if ((i % 5 == 0) && (i % 7 == 0)) {
-          this.numeros.push({ numero: i, color: 'rojo', emoji: 3 });
+          this.consulta.numeros.push({ numero: i, color: 'rojo', emoji: 3 });
         } else if ((i % 3 == 0)) {
 
-          this.numeros.push({ numero: i, color: 'verde', emoji: 0 });
+          this.consulta.numeros.push({ numero: i, color: 'verde', emoji: 0 });
         } else if ((i % 5 == 0)) {
 
-          this.numeros.push({ numero: i, color: 'rojo', emoji: 0 });
+          this.consulta.numeros.push({ numero: i, color: 'rojo', emoji: 0 });
 
         } else if ((i % 7 == 0)) {
 
-          this.numeros.push({ numero: i, color: 'morado', emoji: 0 });
+          this.consulta.numeros.push({ numero: i, color: 'morado', emoji: 0 });
 
         }
 
       }
 
       this.showNumber = true;
+
     } else {
+
       alert('Ingrese numero mayor a 0');
+
     }
 
   }
