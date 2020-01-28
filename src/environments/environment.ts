@@ -16,10 +16,16 @@ export const environment = {
   version: env.npm_package_version + '-dev',
   serverUrl: '/api',
   defaultLanguage: 'en-US',
-  supportedLanguages: [
-    'en-US',
-    'fr-FR'
-  ]
+  supportedLanguages: ['en-US', 'fr-FR'],
+  firebase: {
+    apiKey: 'AIzaSyBrFNYZpLsslHvGBBMrX_BjcRQGqBnk7N4',
+    authDomain: 'test-4c8d7.firebaseapp.com',
+    databaseURL: 'https://test-4c8d7.firebaseio.com',
+    projectId: 'test-4c8d7',
+    storageBucket: 'test-4c8d7.appspot.com',
+    messagingSenderId: '292646478494',
+    appId: '1:292646478494:web:36cf67f30fd9ab40aa518f'
+  }
 };
 
 /*

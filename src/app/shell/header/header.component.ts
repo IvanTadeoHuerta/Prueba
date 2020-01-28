@@ -8,12 +8,11 @@ import { I18nService } from '@app/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
   menuHidden = true;
 
-  constructor(private i18nService: I18nService) { }
+  constructor(private i18nService: I18nService) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   toggleMenu() {
     this.menuHidden = !this.menuHidden;
@@ -30,5 +29,4 @@ export class HeaderComponent implements OnInit {
   get languages(): string[] {
     return this.i18nService.supportedLanguages;
   }
-
 }

@@ -1,32 +1,42 @@
 <div class="container-fluid">
   <div class="jumbotron text-center">
     <h1>
-      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo"/>
+      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo" />
       <span translate>Prueba multiplos 3, 5 y 7 !</span>
     </h1>
     <app-loader [isLoading]="isLoading"></app-loader>
-    <q [hidden]="isLoading">{{quote}}</q>
+    <q [hidden]="isLoading">{{ quote }}</q>
   </div>
 
   <form>
     <div class="form-group">
-      <label for="exampleInputEmail1">Ingrese un numero:</label>
-      <input type="number" class="form-control" id="numero" aria-describedby="emailHelp" placeholder="Escriba número" [(ngModel)]="consulta.numero" [ngModelOptions]="{standalone: true}">
+      <label for="exampleInputEmail1">Ingrese un numero: </label>
+      <input
+        type="number"
+        class="form-control"
+        id="numero"
+        aria-describedby="emailHelp"
+        placeholder="Escriba número"
+        [(ngModel)]="consulta.numero"
+        [ngModelOptions]="{ standalone: true }"
+      />
     </div>
     <button type="button" class="btn btn-primary" (click)="verNumeros()">VER</button>
   </form>
 
   <div *ngIf="showNumber">
-    <br>
+    <br />
     <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let n of consulta.numeros" [ngClass]="{ 'verde' : n.color == 'verde', 'rojo' : n.color == 'rojo', 'morado' : n.color == 'morado'}">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let n of consulta.numeros"
+        [ngClass]="{ verde: n.color == 'verde', rojo: n.color == 'rojo', morado: n.color == 'morado' }"
+      >
         {{ n.numero }}
         <span *ngIf="n.emoji == 1">&#128525;</span>
         <span *ngIf="n.emoji == 2">&#128521;</span>
         <span *ngIf="n.emoji == 3">&#128578;</span>
       </li>
     </ul>
-
   </div>
-
 </div>

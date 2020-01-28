@@ -14,18 +14,9 @@ describe('ShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        TranslateModule.forRoot(),
-        NgbModule,
-        CoreModule
-      ],
-      declarations: [
-        HeaderComponent,
-        ShellComponent
-      ]
-  })
-    .compileComponents();
+      imports: [RouterTestingModule, TranslateModule.forRoot(), NgbModule, CoreModule],
+      declarations: [HeaderComponent, ShellComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
